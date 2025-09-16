@@ -25,36 +25,11 @@ class MostPopularSection extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Title & See All
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    'Most Popular',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: AppThemeData.text_color_white,
-                    ),
-                  ),
-                  Text(
-                    'See All',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: AppThemeData.primary_blue,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            
             const SizedBox(height: 12),
 
-            // Horizontal list of movies
             Container(
               height: 240,
-              // color: AppThemeData.primary_soft,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.only(left: 16),
@@ -85,7 +60,6 @@ class MostPopularSection extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // Poster
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(12),
                                 child: Image.network(
@@ -97,7 +71,6 @@ class MostPopularSection extends StatelessWidget {
                               ),
                               const SizedBox(height: 6),
 
-                              // Title
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(

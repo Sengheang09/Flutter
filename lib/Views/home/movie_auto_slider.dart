@@ -3,6 +3,7 @@ import 'package:final_project/const/themes/app_themes.dart';
 import 'package:final_project/controllers/movie_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MovieSlider extends StatefulWidget {
   const MovieSlider({super.key});
@@ -55,7 +56,6 @@ class _MovieSliderState extends State<MovieSlider> {
     }
 
     final movies = viewModel.movies;
-
     if (_currentPage >= movies.length) _currentPage = 0;
 
     return Column(
@@ -116,25 +116,20 @@ class _MovieSliderState extends State<MovieSlider> {
             },
           ),
         ),
-        // dash (indicator) under the slider
+
+        // ✅ SmoothPageIndicator instead of manual Row
         const SizedBox(height: 12),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(movies.length, (index) {
-            return AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
-              margin: const EdgeInsets.symmetric(horizontal: 4),
-              width: _currentPage == index ? 12 : 8,
-              height: _currentPage == index ? 12 : 8,
-              decoration: BoxDecoration(
-                color:
-                    _currentPage == index
-                        ? AppThemeData.primary_blue
-                        : Colors.white38,
-                shape: BoxShape.circle,
-              ),
-            );
-          }),
+        SmoothPageIndicator(
+          controller: _pageController,
+          count: movies.length,
+          effect: ExpandingDotsEffect(
+            activeDotColor: AppThemeData.primary_blue,
+            dotColor: Colors.white38,
+            dotHeight: 8,
+            dotWidth: 8,
+            expansionFactor: 3,
+            spacing: 7,
+          ),
         ),
       ],
     );

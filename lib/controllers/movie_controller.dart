@@ -9,6 +9,9 @@ class MovieViewModel extends ChangeNotifier {
   bool _isLoading = false;
   String? _error;
 
+  MovieViewModel() {
+    fetchPopularMovies();
+  }
   List<MovieModel> get movies => _movies;
   bool get isLoading => _isLoading;
   String? get error => _error;
@@ -25,6 +28,7 @@ class MovieViewModel extends ChangeNotifier {
     _isLoading = false;
     notifyListeners();
   }
+
 
   // --- expose search for the Search screen
   Future<List<MovieModel>> searchMovies(String q) => _svc.searchMovies(q);

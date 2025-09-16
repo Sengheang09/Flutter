@@ -17,6 +17,7 @@ class Search extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: TextField(
+            enabled: false,
             style: const TextStyle(color: Colors.white),
             decoration: const InputDecoration(
               icon: Icon(Icons.search, color: AppThemeData.text_color_grey),

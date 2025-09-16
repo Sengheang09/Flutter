@@ -20,5 +20,6 @@ class AppThemeData {
   static const Color text_color_white_grey = Color(0xffF1F1F5);
   static const Color text_color_white = Color(0xffFFFFFF);
   static const Color text_color_line_dark = Color(0xffEAEAEA );
+  static const Color text_color_blue = Color(0xff4267B2);
   
 }

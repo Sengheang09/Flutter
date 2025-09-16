@@ -1,7 +1,8 @@
-import 'package:final_project/Views/btn_search.dart';
-import 'package:final_project/Views/profile.dart';
+import 'package:final_project/Views/screen_download.dart';
+import 'package:final_project/Views/search/btn_search.dart';
+import 'package:final_project/Views/profile/profile.dart';
 import 'package:flutter/material.dart';
-import 'package:final_project/Views/homescreen.dart';
+import 'package:final_project/Views/home/homescreen.dart';
 import 'package:final_project/const/themes/app_themes.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -16,16 +17,16 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
 
   final List<Widget> _screens = [
     const HomeScreen(),
-    const BtnSearchScreen(), 
-    Center(child: Text("Download", style: TextStyle(color: Colors.white))),
-    const Profile(),
+    BtnSearchScreen(),
+    ScreenDownload(),
+    Profile(),
   ];
 
   final List<Map<String, dynamic>> _navItems = [
-    {'icon': 'assets/icon/home.png', 'label': 'Home'},
-    {'icon': 'assets/icon/search.png', 'label': 'Search'},
-    {'icon': 'assets/icon/icon_download.png', 'label': 'Download'},
-    {'icon': 'assets/icon/profile.png', 'label': 'Profile'},
+    {'icon': 'assets/icons/home.png', 'label': 'Home'},
+    {'icon': 'assets/icons/search.png', 'label': 'Search'},
+    {'icon': 'assets/icons/icon_download.png', 'label': 'Download'},
+    {'icon': 'assets/icons/profile.png', 'label': 'Profile'},
   ];
 
   void _onItemTapped(int index) {
